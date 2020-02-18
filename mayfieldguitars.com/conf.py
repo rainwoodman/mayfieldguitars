@@ -139,9 +139,10 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
-        ("/categories/", "Tags"),
-        ("/rss.xml", "RSS feed"),
+        # ("/archive.html", "Archive"),
+        ("https://github.com/rainwoodman/mayfieldguitars", "Source Code"),
+        ("https://github.com/rainwoodman/mayfieldguitars/issues", "Report Issues"),
+        #("/rss.xml", "RSS feed"),
     ),
 }
 
