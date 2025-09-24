@@ -25,21 +25,26 @@ SERVICE_ACCOUNT_EMAIL="${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount
 
 # Assign necessary roles to the service account
 echo "Assigning roles to service account..."
+
+# Role for Cloud Build to build and push images
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+  --member="serviceAccount:$SERVICE_ACCOUNT_EMAIL" \
+  --role="roles/cloudbuild.builds.builder"
+
+# Role for Cloud Run deployment
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
   --member="serviceAccount:$SERVICE_ACCOUNT_EMAIL" \
   --role="roles/run.admin"
 
-gcloud projects add-iam-policy-binding "$PROJECT_ID" \
-  --member="serviceAccount:$SERVICE_ACCOUNT_EMAIL" \
-  --role="roles/storage.admin"
-
+# Role to act as the Cloud Run service's runtime identity
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
   --member="serviceAccount:$SERVICE_ACCOUNT_EMAIL" \
   --role="roles/iam.serviceAccountUser"
 
+# Role to push to Artifact Registry
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
   --member="serviceAccount:$SERVICE_ACCOUNT_EMAIL" \
-  --role="roles/resourcemanager.projectIamAdmin"
+  --role="roles/artifactregistry.writer"
 
 # Generate a JSON key for the service account
 echo "Generating JSON key for the service account..."

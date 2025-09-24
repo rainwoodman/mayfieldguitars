@@ -15,18 +15,11 @@ fi
 echo "Authenticating with the service account..."
 gcloud auth activate-service-account --key-file="gcp/gcp-credentials.json"
 
-# Prompt for a region
-read -p "Enter the region for your Artifact Registry and Cloud Run service (e.g., us-central1): " REGION
+# Prompt for the region
+read -p "Enter the region of your Artifact Registry and Cloud Run service (e.g., us-central1): " REGION
 
-# Prompt for a repository name
-read -p "Enter a name for your Artifact Registry repository (e.g., mayfieldguitars-repo): " REPO_NAME
-
-# Create the Artifact Registry repository
-echo "Creating Artifact Registry repository..."
-gcloud artifacts repositories create "$REPO_NAME" \
-  --repository-format=docker \
-  --location="$REGION" \
-  --description="Docker repository for Mayfield Guitars"
+# Prompt for the repository name
+read -p "Enter the name of your Artifact Registry repository (e.g., mayfieldguitars-repo): " REPO_NAME
 
 # Prompt for a service name
 read -p "Enter a name for your Cloud Run service (e.g., mayfieldguitars-service): " SERVICE_NAME

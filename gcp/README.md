@@ -9,9 +9,11 @@ This directory contains a set of scripts to automate the deployment of the Mayfi
 
 ## Instructions
 
-Follow these steps in order to deploy the application:
+Follow these steps in order to deploy the application. The setup scripts only need to be run once.
 
-### 1. Set Up Your Google Cloud Project
+### One-Time Setup
+
+#### 1. Set Up Your Google Cloud Project
 
 Run the following script to either create a new Google Cloud project or use an existing one.
 
@@ -19,11 +21,19 @@ Run the following script to either create a new Google Cloud project or use an e
 ./gcp/gcloud_setup.sh
 ```
 
-The script will ask you if you want to create a new project. If you choose to use an existing project, you will be prompted for the project ID.
+The script will ask you if you want to create a new project. If you choose to use an existing project, you will be prompted for the project ID. After the project is set, the script will provide a URL to enable or verify billing. You must complete this step before the script can enable the required APIs.
 
-After the project is set, the script will provide a URL to enable or verify billing. You must complete this step before the script can enable the required APIs.
+#### 2. Set Up the Artifact Registry
 
-### 2. Set Up the Service Account
+Run this script to create a new Artifact Registry repository for your Docker images.
+
+```bash
+./gcp/artifact_registry_setup.sh
+```
+
+You will be prompted to enter a region and a name for your repository.
+
+#### 3. Set Up the Service Account
 
 Run this script to create a service account with the required permissions and generate a JSON key for authentication.
 
@@ -33,17 +43,17 @@ Run this script to create a service account with the required permissions and ge
 
 This will create a `gcp-credentials.json` file in the `gcp` directory. **Do not commit this file to version control.**
 
-### 3. Deploy to Cloud Run
+### Deploying the Application
 
-Run this script to build the Docker image, push it to the Artifact Registry, and deploy it to Cloud Run.
+Once the one-time setup is complete, you can deploy the application by running the following script:
 
 ```bash
 ./gcp/cloud_run_deploy.sh
 ```
 
-You will be prompted to enter a region, a repository name, and a service name.
+You will be prompted to enter the region, repository name, and a service name.
 
-### 4. Stop and Delete the Service
+### Stopping the Service
 
 When you are finished, you can stop and delete the Cloud Run service to avoid incurring further costs.
 
