@@ -5,7 +5,7 @@ This directory contains a set of scripts to automate the deployment of the Mayfi
 ## Prerequisites
 
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) installed and authenticated.
-- An active Google Cloud account with billing enabled.
+- An active Google Cloud account.
 
 ## Instructions
 
@@ -13,13 +13,13 @@ Follow these steps in order to deploy the application:
 
 ### 1. Set Up Your Google Cloud Project
 
-Run the following script to create a new Google Cloud project and enable the necessary APIs. You will be prompted to enter a project ID.
+Run the following script to create a new Google Cloud project. You will be prompted to enter a project ID.
 
 ```bash
 ./gcp/gcloud_setup.sh
 ```
 
-After the script completes, you will be given a URL to enable billing for your new project. This is a required step.
+After the project is created, the script will provide a URL to enable billing. You must complete this step before the script can enable the required APIs.
 
 ### 2. Set Up the Service Account
 

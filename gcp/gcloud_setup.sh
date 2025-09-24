@@ -14,6 +14,13 @@ gcloud projects create "$PROJECT_ID"
 echo "Setting active project to $PROJECT_ID..."
 gcloud config set project "$PROJECT_ID"
 
+# Inform the user to enable billing
+echo "Your project has been created. Before proceeding, you must enable billing."
+echo "Visit the following URL in your browser to associate a billing account with your project:"
+echo "https://console.cloud.google.com/billing/linkedaccount?project=$PROJECT_ID"
+echo ""
+read -p "After you have enabled billing, press [Enter] to continue..."
+
 # Enable necessary APIs
 echo "Enabling required APIs..."
 gcloud services enable \
@@ -23,7 +30,4 @@ gcloud services enable \
   cloudresourcemanager.googleapis.com \
   iam.googleapis.com
 
-# Inform the user to enable billing
-echo "Project setup is almost complete. Please enable billing for your project."
-echo "Visit the following URL to enable billing:"
-echo "https://console.cloud.google.com/billing/linkedaccount?project=$PROJECT_ID"
+echo "Project setup and API enablement are complete."
