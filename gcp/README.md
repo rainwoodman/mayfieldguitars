@@ -13,13 +13,15 @@ Follow these steps in order to deploy the application:
 
 ### 1. Set Up Your Google Cloud Project
 
-Run the following script to create a new Google Cloud project. You will be prompted to enter a project ID.
+Run the following script to either create a new Google Cloud project or use an existing one.
 
 ```bash
 ./gcp/gcloud_setup.sh
 ```
 
-After the project is created, the script will provide a URL to enable billing. You must complete this step before the script can enable the required APIs.
+The script will ask you if you want to create a new project. If you choose to use an existing project, you will be prompted for the project ID.
+
+After the project is set, the script will provide a URL to enable or verify billing. You must complete this step before the script can enable the required APIs.
 
 ### 2. Set Up the Service Account
 
