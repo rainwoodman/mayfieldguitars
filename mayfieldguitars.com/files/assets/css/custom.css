@@ -1,0 +1,36 @@
+/* Custom CSS to add background colors */
+body {
+    background-color: #FCF9E8; /* Light yellowish background */
+    color: #1B2325; /* Dark text color */
+}
+
+header {
+    background-color: #8D3F35; /* Dark red for header */
+}
+
+header nav ul > li > a {
+    color: #F0AE57; /* Orange/Yellow for links */
+    border-bottom-color: rgba(252, 249, 232, 0.7);
+}
+
+header nav ul > li > a:hover {
+    background: rgba(141, 63, 53, 0.8);
+    color: #FFF;
+}
+
+.post-entry .post-tags .tag a {
+    background: #FCF9E8;
+    color: #1B2325;
+}
+
+footer {
+    background: #1B2325; /* Dark background for footer */
+    color: #FCF9E8;
+}
+
+.tagline, .meta-header, .post-header {
+    background: #1B2325;
+    color: #FCF9E8;
+}
+
+/* Update other elements to match the new scheme if necessary */
