@@ -139,10 +139,8 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        # ("/archive.html", "Archive"),
-        ("https://github.com/rainwoodman/mayfieldguitars", "Source Code"),
-        ("https://github.com/rainwoodman/mayfieldguitars/issues", "Report Issues"),
-        #("/rss.xml", "RSS feed"),
+        ("https://github.com/rainwoodman/mayfieldguitars", "fa fa-github"),
+        ("https://github.com/rainwoodman/mayfieldguitars/issues", "fa fa-bug"),
     ),
 }
 
@@ -154,11 +152,11 @@ NAVIGATION_ALT_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bnw"
+THEME = "hemingway"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
-THEME_COLOR = '#5670d4'
+# THEME_COLOR = '#D2691E'
 
 # Theme configuration. Fully theme-dependent. (translatable)
 # Examples below are for bootblog4.
